@@ -12,9 +12,9 @@ function CounterPage(){
   }
   return <>
    Sayac: <label>{counter}</label>
-   <Button text="(+)" color="white" bgColor="blue" onClick={increase}  />
+   <Button text="(+)" color="white" bgColor="blue" onButtonClick={increase}  />
    {' '}
-   <Button text="(-)" color="red" bgColor="white" onClick={decrease}  />
+   <Button text="(-)" color="red" bgColor="white" onButtonClick={decrease}  />
   </>
 }
 // /counter-sample routing

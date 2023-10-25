@@ -5,15 +5,16 @@ type ButtonProps = {
   text:string;
   bgColor:string;
   color:string; // property
-  onClick(e:any):void; // event tanımı
+  onButtonClick(e:any):void; // event tanımı
 }
 function Button(props:ButtonProps) {
-  const {text,bgColor,color,onClick} = props;
+  // component için kendi eventimizi tanımlamış olduk.
+  const {text,bgColor,color,onButtonClick} = props;
   // TSX dosyamız
-  const btnClick = (e:any) => { onClick(e);}
+  const btnClick = (e:any) => { onButtonClick(e);}
   return <>
    <button onClick={
-    (e:any) => onClick(e)
+    (e:any) => onButtonClick(e)
     } style={{color:color,backgroundColor:bgColor}}>{text}</button>
       {/* <button style={{color:color,backgroundColor:bgColor}} onClick={btnClick}>{text}</button> */}
   </>
