@@ -12,7 +12,7 @@ root.render(
     // kendi componentimize dışarıdan bir attribute değeri gönderebildik
     <>
         <App title='App-1' />
-        <App title='App-2' />
+        <App title='App-2' body='App2 Body' />
     </>
 
   // </React.StrictMode>
