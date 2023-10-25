@@ -1,0 +1,1 @@
+export type TodoState = { id?:number; title:string; completed:boolean;}
