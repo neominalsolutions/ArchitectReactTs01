@@ -2,23 +2,25 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+type AppProps = {
+  title?:string // optional
+}
+// component içerisine dışarıdan bir değer göndereceğimiz zaman function parametre olarak geçiyoruz
+function App(props:AppProps) {
+  const {title} = props;  // object deconstruction işlemi.
+  const message = "Property Binding";  // property binding
+  const showMessage = () => {   // functions
+    alert('React TS');
+  }
+  // en alt satırda retur ifadesi bulunsun
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* property binding */}
+       {message}
+       <br></br>
+       {/* event binding */}
+       <p>{title} {props.title}</p>
+       <button onClick={showMessage}>Click Me</button>
     </div>
   );
 }
