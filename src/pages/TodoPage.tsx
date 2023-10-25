@@ -13,16 +13,25 @@ function TodoPage(){
  }
  const OnInputChange = (event:any) => {
   console.log('OnInputChange', event.target.value);
+  // react ref değerler ile çalışırken eğer spread operatör kullanmazsak virtual dom state değişimini algılamıyor bu sebele aşağıdaki formatta yazıyoruz
+  // todo.title = event.target.value;
+  // setTodo(todo);
+  setTodo({...todo, title:event.target.value})
   // Todo State set edeceğiz.
  }
  const OnCompletedChange = (event:any) => {
   console.log('OnCompletedChange', event.target.checked);
+  setTodo({...todo, completed:event.target.checked})
  }
   return <>
+    Title : {todo.title}
+    <br></br>
+    Completed: {todo.completed ? 'Tamamlandı':'Tamamlanmadı'}
+    <br></br>
     <form onSubmit={(e:any) => addTodo(e)} method="post">
-      <input type="text" value={todo?.title} onChange={OnInputChange} />
+      <input type="text"  onChange={OnInputChange} />
       <br></br>
-      <input type="checkbox" checked={todo.completed} onChange={OnCompletedChange}  /> Tamamlandı Mı?
+      <input type="checkbox"  onChange={OnCompletedChange}  /> Tamamlandı Mı?
       <br></br>
       <input type="submit" value="Ekle" />
     </form>

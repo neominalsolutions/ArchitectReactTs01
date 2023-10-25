@@ -30,6 +30,8 @@ root.render(
                   <Link to="/about">About Page</Link>
                   {' '}
                   <Link to="/todo-page">Todo Page</Link>
+                  {' '}
+                  <a href='https://www.google.com'>Google</a>
                 </header>
                 <main style={{padding:"10px"}}>
                   {/* component içeriklerinin değiştiği kısım */}
