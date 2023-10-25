@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import App from './App';
+import CounterPage from './pages/CounterPage';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -11,8 +12,9 @@ root.render(
   // <React.StrictMode>
     // kendi componentimize dışarıdan bir attribute değeri gönderebildik
     <>
-        <App title='App-1' />
-        <App title='App-2' body='App2 Body' />
+        {/* <App title='App-1' />
+        <App title='App-2' body='App2 Body' /> */}
+        <CounterPage />
     </>
 
   // </React.StrictMode>
