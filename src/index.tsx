@@ -4,6 +4,9 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import App from './App';
 import CounterPage from './pages/CounterPage';
+import { BrowserRouter, Link, Outlet, Route, Routes } from 'react-router-dom';
+import TodoPage from './pages/TodoPage';
+// import { BrowserRouter, Routes } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -14,7 +17,39 @@ root.render(
     <>
         {/* <App title='App-1' />
         <App title='App-2' body='App2 Body' /> */}
-        <CounterPage />
+        {/* <CounterPage /> */}
+
+        {/* uygulama içerisinde Browser Route tag içerisinde kalan tüm componentler clientside routing işlemine tabi olucaklar */}
+        <BrowserRouter>
+          <Routes>
+              <Route path='/' element={<>
+                <header style={{padding:"10px"}}>
+                  <Link to="/counter-page">Counter Page Sample</Link>
+                  {' '} 
+                  {/* aralarına boşluk bıraktık */}
+                  <Link to="/about">About Page</Link>
+                  {' '}
+                  <Link to="/todo-page">Todo Page</Link>
+                </header>
+                <main style={{padding:"10px"}}>
+                  {/* component içeriklerinin değiştiği kısım */}
+                  <Outlet /> 
+                </main>
+                <footer style={{padding:"10px"}}>
+                  Alt Bilgi
+                </footer></>
+            }>
+                <Route path='/counter-page' Component={CounterPage}></Route>
+                <Route path='/about' element={<>About Page</>}></Route>
+                <Route path='/todo-page' Component={TodoPage}></Route>
+              </Route>
+              <Route path='/admin' element={<Outlet />}>
+                <Route path='users' element={<>Admin Users</>}></Route>
+                <Route path='roles' element={<>Admin Roles</>}></Route>
+              </Route>
+          </Routes>
+        </BrowserRouter>
+
     </>
 
   // </React.StrictMode>
