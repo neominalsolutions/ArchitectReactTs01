@@ -3,8 +3,6 @@ import { TodoState } from "./TodoState";
 import TodoList from "./TodoList";
 import TodoForm from "./TodoForm";
 
-
-
 function TodoPage(){
   // listeye eklenecek olan todo ait değerleri bu state içinde tutacağız 
  // listeye yeni iş ekleme çıkarama işlemlerini todos ile yöneteceğiz
@@ -16,7 +14,6 @@ function TodoPage(){
  }
  
   return <>
-
 {/* child Component */}
 {/* formdaki state bilgisini fılatıp. root componentte güncel state bilgisine göre listeye ekleme yapıyor */}
     <TodoForm todoItem={{title:'',completed:false}} 
@@ -25,9 +22,7 @@ function TodoPage(){
 {/* child Component */}
 {/* güncel state ile componenti güncelliyor */}
     <TodoList todos={todos} />
-
   </>
-
 }
 
 
