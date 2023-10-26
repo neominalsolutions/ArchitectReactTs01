@@ -7,10 +7,12 @@ function TodoPage(){
   // listeye eklenecek olan todo ait değerleri bu state içinde tutacağız 
  // listeye yeni iş ekleme çıkarama işlemlerini todos ile yöneteceğiz
  const [todos, setTodos] = useState<TodoState[]>([]);
+ const [activeTodo,setActiveTodo] = useState<TodoState | undefined>();
  // todos dizisine son state değerini ekleme işlemi gerçekleştireceğiz. 
  const addTodo = (todo:TodoState) => { 
   todo.id = todos.length + 1;
   setTodos([todo,...todos]);
+  setActiveTodo(todo);
  }
  
   return <>
@@ -21,7 +23,7 @@ function TodoPage(){
 
 {/* child Component */}
 {/* güncel state ile componenti güncelliyor */}
-    <TodoList todos={todos} />
+    <TodoList activeTodo={activeTodo} todos={todos} />
   </>
 }
 
