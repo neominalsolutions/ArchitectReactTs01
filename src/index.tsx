@@ -6,6 +6,7 @@ import App from './App';
 import CounterPage from './pages/CounterPage';
 import { BrowserRouter, Link, Outlet, Route, Routes } from 'react-router-dom';
 import TodoPage from './pages/TodoPage';
+import ClassComponentSample from './pages/ClassComponentSample';
 // import { BrowserRouter, Routes } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(
@@ -31,6 +32,8 @@ root.render(
                   {' '}
                   <Link to="/todo-page">Todo Page</Link>
                   {' '}
+                  <Link to="/class-component">Class Component</Link>
+                  {' '}
                   <a href='https://www.google.com'>Google</a>
                 </header>
                 <main style={{padding:"10px"}}>
@@ -38,12 +41,14 @@ root.render(
                   <Outlet /> 
                 </main>
                 <footer style={{padding:"10px"}}>
+                  {/* <ClassComponentSample name="deneme1"  /> */}
                   Alt Bilgi
                 </footer></>
             }>
                 <Route path='/counter-page' Component={CounterPage}></Route>
                 <Route path='/about' element={<>About Page</>}></Route>
                 <Route path='/todo-page' Component={TodoPage}></Route>
+                <Route path='/class-component' Component={ClassComponentSample}></Route>
               </Route>
               <Route path='/admin' element={<Outlet />}>
                 <Route path='users' element={<>Admin Users</>}></Route>
